@@ -84,7 +84,7 @@ async def post_feedback(request: Request):
         raise HTTPException(status_code=400, detail="Missing required fields")
     
     collection.update_one(
-        {"id": res_id}, 
-        {"$set": {"user_rating.aggregate_rating": rating, "user_rating.rating_text": rating_text}}
+        {"id": res_id}, {"$set": {"user_rating.aggregate_rating": rating, "user_rating.rating_text": rating_text}}
+        
     )
     return 
